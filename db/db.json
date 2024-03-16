@@ -1,0 +1,41 @@
+{
+  "brands":[{
+  "id": "bar-luca",
+  "logo": "empty",
+  "address": [{"name": "bar luca", "details": "18 Parc Place SCBD Tower B - GF\nJl. JEND. SUDIRMAN NO. 52-53\nSCBD JAKARTA 12190","openinghours": "Monday - Saturday 5PM - 1AM","phone": "+62215155788","wa":"+6282218281868"
+  }],
+  "tagline": "A natural wine bar that doesn't take itself too seriously",
+  "desc": "Wine can be intimidating - names you can’t pronounce, lingo you don’t understand – but it shouldn’t be. It should be delicious, free-flowing, INTOXICATING. Come and share bottles and bottles of juicy stuff. Oh and there’ll be small plates, an eclectic playlist that you just can’t help but vibe with, and maybe shots."
+  },
+  {
+  "id": "roma",
+  "logo": "empty",
+  "address": [{"name": "sequis tower", "details": "ground floor #03-01\nJl. JEND. SUDIRMAN kav. 71\nJAKARTA 12190",
+  "openinghours": "Monday - Saturday 5PM - 1AM","phone": "+62215155788","wa":"+6282218281868"
+  },
+  {"name": "pondok indah mall 3", "details": "ground floor\nJl. Kartika Utama no. 1\nJAKARTA Selatan",
+  "openinghours": "Monday - Saturday 5PM - 1AM","phone": "+622119284788","wa":"+6281225939186"
+  }],
+  "tagline": "A natural wine bar that doesn't take itself too seriously",
+  "desc": "Wine can be intimidating – names you can’t pronounce, lingo you don’t understand – but it shouldn’t be. It should be delicious, free-flowing, INTOXICATING. Come and share bottles and bottles of juicy stuff. Oh and there’ll be small plates, an eclectic playlist that you just can’t help but vibe with, and maybe shots."
+  },
+  {
+  "id": "bouchon",
+  "logo": "empty",
+  "address": [{"name": "bouchon", "details": "JL. SENOPATI NO.79, RT.8/RW.4\nSELONG, KEC. KBY. BARU, KOTA\nJAKARTA 12110",
+  "openinghours": "Monday - Sunday 11PM - 12AM","phone": "+62215155788","wa":"+6282218281868"
+  }],
+  "tagline": "Our not-so-little French Warung\n An everyday restaurant serving unfussy French food, drinks and pastries from morning to night. Snappy service, lively atmosphere and a traditional menu",
+  "desc": "Inspired by classic Bouchons of Lyon and Parisian Bouillons, Bouchon offers a diverse menu of generous, tasty dishes prepared without frills. Chef Brandon Foo’s twist on heritage recipes are truly new classics. Located in Senopati, the two-floor space features a warm, cozy ground level with eclectic knickknacks and a second floor bathed in natural light reflecting off the Parisian mirrors, two private dining rooms and a beautiful balcony. Drop in for a quick lunch of Croque Bouchon or ‘Au Poivre’ Burger, afternoon meetings over hot chocolate and Canelé, or a dinner date with Halibut Meunière, Steak Frites and house wine. À bientôt!"
+  },
+  {
+  "id": "pierre",
+  "logo": "empty",
+  "address": [{"name": "pierre", "details": "JL. SENOPATI NO.39\nJAKARTA 12190",
+  "openinghours": "Monday - Sunday 11AM - 12AM","phone": "+62215155788","wa":"+6282218281868"
+  }],
+  "tagline": "A classic French bistro in collaboration with Chef Brandon Foo of Singapore’s Le Bistrot du Sommelier",
+  "desc": "Taking over the space previously occupied by Emilie, the restaurant is a tranquil refuge from the mayhem of Senopati. Just as intimate as the Jaya Ibrahim-designed space is the food – traditional French cuisine that will warm the cockles of your heart and transport you to Paris in a spoonful of pomme purée. Brandon’s years of experience in Michelin-starred kitchens of France, Australia and Switzerland gave him mastery of French techniques, but his passion in rustic fare and seasonal ingredients reign supreme. Like dining at the home of a sophisticated French friend, who just happens to be amazing in the kitchen. À bientôt!"
+  }
+  ]
+  }
