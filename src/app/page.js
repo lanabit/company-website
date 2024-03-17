@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between z-0 mt-20 w-full">
-      <div className="h-[80vh] w-full relative">
-        <h1 className="absolute text-white text-8xl h-[90vh] ml-32 drop-shadow-lg w-[700px] mt-[40vh]">
+    <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
+      <div className="h-[100vh] w-full relative">
+        <h1 className="absolute text-white text-8xl h-[90vh] ml-32 drop-shadow-lg w-[700px] mt-[50vh]">
           Gather at the table of UNION
         </h1>
         <img
           src="/homepage_hero2.jpg"
-          className="h-[90vh] w-[100vw] object-cover object bottom"
+          className="h-[100vh] w-[100vw] object-cover object bottom"
           alt="Hero Image"
         />
       </div>
