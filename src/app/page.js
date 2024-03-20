@@ -1,20 +1,39 @@
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const onFetchInfo = async() => {
+    try {
+      let res = await fetch("http://localhost:5000/reviews",{
+        method: 'GET',
+        cache:'no-store'
+      })
+      res = await res.json()
+      return res
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
+  let a = await onFetchInfo()
+  console.log('a', a)
   return (
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
       <div className="h-[100vh] w-full relative">
-        <h1 className="absolute text-white text-8xl h-[90vh] ml-32 drop-shadow-lg w-[700px] mt-[50vh]">
-          Gather at the table of UNION
-        </h1>
+        <div className="absolute text-white z-40 text-center h-[90vh] drop-shadow-lg w-full mt-[49vh]">
+          <div className="text-8xl">Gather at the table of UNION</div>
+          <div className="text-2xl my-8">We know a thing or two about providing an unforgettable dining experience.</div>
+        </div>
+        <div className="w-full h-full bg-black/30 absolute">
+        </div>
         <img
           src="/homepage_hero2.jpg"
           className="h-[100vh] w-[100vw] object-cover object bottom"
           alt="Hero Image"
         />
       </div>
-      <div className="w-[60vw] z-40 my-40">
-        <p className="text-center font-medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing diam donec adipiscing. Est sit amet facilisis magna etiam tempor. Pellentesque elit eget gravida cum sociis natoque penatibus et magnis. Rhoncus dolor purus non enim praesent elementum facilisis leo vel. Arcu non odio euismod lacinia at quis risus sed. Malesuada fames ac turpis egestas sed tempus urna. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas. </p>
+      <div className="w-[60vw] z-40 my-32">
+      <h2 className="w-full text-center font-bold tracking-wider text-3xl mb-16 whitespace-pre-line">{`WESTERN FOOD AS A NICHE,\nLOCAL FLAVOR AS A COMPASS`}</h2>
+        <p className="text-center font-medium">Founded in 2007, we at The Union Group have embarked on a remarkable journey dedicated to redefining the culinary landscape of Indonesia. With Western cuisine as the vessel of our dish exploration, we envisioned creating exceptional dining experiences that would resonate with discerning palates and celebrate the rich tapestry of global gastronomy. Over the years, we've expanded our footprint across Indonesia, introducing a diverse array of restaurants. From the iconic Union restaurant to the award-winning The Cocktail Club, our kitchens marry the western and local richness and continually pushed boundaries in the food & beverage industry. Our commitment to quality, creativity, and creating memorable dining moments has propelled us forward. Today, we stand as a beacon of culinary excellence, cherished by patrons across Indonesia and beyond.</p>
         <h2 className="w-full text-center font-bold tracking-wider my-24 text-3xl whitespace-pre-line">{`10 BRANDS, 23 OUTLETS, \n17 YEARS OF EXPERIENCE`}</h2>
         <div className="flex flex-wrap w-[600px] items-center justify-center gap-4 mx-auto">
           <Image
@@ -84,6 +103,21 @@ export default function Home() {
             alt="Union Logo"
           ></Image>
         </div>
+      </div>
+      <h2 className="w-full text-center font-bold tracking-wider text-3xl mb-16 whitespace-pre-line">{`VETTED BY MEDIA'S BEST FOOD CRITICS`}</h2>
+      <div className="grid grid-cols-5 border-y-2 border-black">
+      {a.map((x,i) => {
+        return(
+          <div key={i} className="border-r-2 p-8 border-black flex flex-col justify-between">
+            <div className="text-md">{x.review}</div>
+            <div className="pt-8">
+            <div className="font-bold">{x.name}</div>
+            <div className="text-sm">{x.title}</div>
+            <div className="text-sm italic">{x.affiliation}</div>
+            </div>
+          </div>
+        )
+      })}
       </div>
     </div>
   );

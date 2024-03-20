@@ -10,6 +10,7 @@ export default function Navbar() {
   let regex = /^\/brands(?:\/|$)/
 
   const [ navbar, setNavbar ] = useState(false)
+  
   const pageScrolled = () => {
     setNavbar(false)
     if(window.scrollY > 80){

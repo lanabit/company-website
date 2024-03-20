@@ -1,26 +1,11 @@
 'use client'
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export const onFetchUser = async() => {
-  try {
-    let res = await fetch('https://randomuser.me/api/?results=10&seed=abc',{
-      method: 'get',
-      cache: 'no-store'
-    })
-    res = await res.json()
-    //console.log("res", res)
-    //console.log("name", res.results[0].name)
-    return res
-  } catch (error) {
-    console.log(error)
-  }
-}
+export const useGetTeam = () => {
+  const [team, setTeam] = useState(null)
 
-export default async function onFetchTeam() {
-
-    const [teamz, setTeamz] = useState(null)
-    const roles = [
+  const roles = [
       {
           title: "CEO",
           expertise: "Strategic Leadership, Business Development, Stakeholder Relationship Management",
@@ -53,46 +38,50 @@ export default async function onFetchTeam() {
       }
   ]
 
-  try {
-    let res = await fetch('https://randomuser.me/api/?results=6&seed=abc',{
-      method: 'get',
-      cache: 'no-store'
-    })
-    res = await res.json()
+  const onFetchTeam = async() => {
+    try {
+      let res = await fetch('https://randomuser.me/api/?results=6&seed=abc',{
+        method: 'get',
+        cache: 'no-store'
+      })
+      res = await res.json() 
 
-    for(let i = 0; i < 6; i++) {
-      res.results[i].role = roles[i]
-      console.log(res.results[i].nat)
+      console.log(res)
+      for(let i = 0; i < 6; i++) {
+        res.results[i].role = roles[i]
+        console.log(res.results[i])
+      }
+      // setTeam(res.results)
+      console.log(team)
+      return res
+    } catch (error) {
+      console.log(error)
     }
-    setTeamz(res.results)
-    console.log(teamz)
-    console.log(res.results[2].role)
-  } catch (error) {
-    console.log(error)
   }
 
-  return {teamz}
+  useEffect(() => {
+    onFetchTeam()
+  },[])
+
+  const showTeam = (teamCol) => {
+    teamCol.map((x,i) =>{
+      return(
+        <div key={i}>
+          {x.email}
+          <Image
+          src={x.picture?.large}
+          height={200}
+          width={200}
+          alt="user"
+          quality={100}/>
+        </div>
+      )
+    })
+  }
+
+  return {
+    // team,
+    onFetchTeam,
+    showTeam
+  }
 }
-/* 
-export default async function Fetching() {
-  let a = await onFetchUser()
-  a = a.results.slice(0,3)
-  console.log(a)
-  return(
-    <div className="mt-32">
-      {a.map((x,i) => {
-        return(
-          <div key={i}>
-            {x.email}
-            <Image
-            src={x.picture.large}
-            height={200}
-            width={200}
-            alt="user"
-            quality={100}/>
-          </div>
-        )
-      })}
-    </div>
-  )
-} */
