@@ -6,7 +6,7 @@ export default async function About() {
   const { team, onFetchTeam } = useGetTeam()
   let a = await onFetchTeam()
   a = a.results
-  // console.log('a', a)
+  
   console.log(team)
   return(
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">

@@ -15,7 +15,6 @@ export default async function Home() {
   }
   
   let a = await onFetchInfo()
-  console.log('a', a)
   return (
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
       <div className="h-[100vh] w-full relative">

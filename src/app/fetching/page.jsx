@@ -9,8 +9,6 @@ export const onFetchUser = async() => {
       cache: 'no-store'
     })
     res = await res.json()
-    //console.log("res", res)
-    //console.log("name", res.results[0].name)
     return res
   } catch (error) {
     console.log(error)
@@ -62,15 +60,11 @@ export default async function onFetchTeam() {
 
     for(let i = 0; i < 6; i++) {
       res.results[i].role = roles[i]
-      console.log(res.results[i].nat)
     }
     setTeamz(res.results)
-    console.log(teamz)
-    console.log(res.results[2].role)
   } catch (error) {
     console.log(error)
   }
-
   return {teamz}
 }
 /* 
