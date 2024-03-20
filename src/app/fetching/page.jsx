@@ -1,7 +1,14 @@
-'use client'
 import Image from "next/image"
-import { useState } from "react"
 
+export default function Fetching() {
+  return(
+    <div>
+      Fetching Page
+    </div>
+  )
+}
+
+/* 
 export const onFetchUser = async() => {
   try {
     let res = await fetch('https://randomuser.me/api/?results=10&seed=abc',{
@@ -67,6 +74,8 @@ export default async function onFetchTeam() {
   }
   return {teamz}
 }
+ */
+
 /* 
 export default async function Fetching() {
   let a = await onFetchUser()
