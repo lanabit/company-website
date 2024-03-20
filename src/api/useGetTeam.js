@@ -46,13 +46,9 @@ export const useGetTeam = () => {
       })
       res = await res.json() 
 
-      console.log(res)
       for(let i = 0; i < 6; i++) {
         res.results[i].role = roles[i]
-        console.log(res.results[i])
       }
-      // setTeam(res.results)
-      console.log(team)
       return res
     } catch (error) {
       console.log(error)
