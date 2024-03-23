@@ -1,36 +1,42 @@
 'use client'
 import Image from "next/image"
 import { useGetTeam } from "~/api/useGetTeam"
-
+import db from "../../../db/db.json"
+import Timeline from "~/components/timeline"
+import Link from "next/link"
 export default async function About() {
-  const { team, onFetchTeam } = useGetTeam()
+  const { onFetchTeam } = useGetTeam()
   let a = await onFetchTeam()
-  a = a.results
+  a = await a.results
   
-  console.log(team)
   return(
-    <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
+    <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full ">
       <div className="h-[100vh] w-full relative">
-        <h1 className="absolute text-white text-8xl h-[90vh] ml-32 drop-shadow-lg mt-[50vh]">
-          What UNION is about
-        </h1>
+        <div className="h-[50vh] w-full absolute bg-black/20">
+
+        </div>
         <img
           src="/homepage_hero5.jpg"
-          className="h-[100vh] w-full object-cover object-center"
+          className="h-[65vh] w-full object-cover object-center border-b-4 border-black"
           alt="Hero Image"
         />
+        <div className="absolute text-center w-full mt-20">
+          <div className="text-8xl">Get to know us</div>
+          <div className="text-2xl mt-8">Our history, what we are all about -- we will lay it all out here</div>
+        </div>
       </div>
 
-      <div className="w-[full] mt-24">
+      <div className="w-[full]">
         <h1 className="text-center font-medium mb-16 text-xl w-[99vw] py-2 border-y-2 border-black">
           HISTORY </h1>
-
-        <p className="text-center font-medium w-[60vw] mx-auto">Since our founding in 2007, we at The Union Group have embarked on a remarkable journey dedicated to redefining the culinary landscape of Indonesia. From our humble beginnings, we envisioned creating exceptional dining experiences that would resonate with discerning palates and celebrate the rich tapestry of global cuisines. Over the years, we've expanded our footprint across Indonesia, introducing a diverse array of restaurants that have become synonymous with innovation and excellence. From the iconic Union restaurant, where international and Indonesian flavors converge with style, to our latest award-winning bar The Cocktail Club, we've continually pushed boundaries and set new standards in gastronomy. Our commitment to quality, creativity, and creating memorable dining moments has propelled us forward, and today, we stand as a beacon of culinary excellence, cherished by patrons across Indonesia and beyond. As we continue to evolve and grow, our passion for crafting exceptional culinary experiences remains unwavering, driving us to new heights of success and innovation.</p>
+        <Timeline />
+        <p className="text-center font-medium w-[60vw] mx-auto">Our journey started with a Spanish bar & restaurant called Casa that nestled in the heart of Kemang. That first endeavour with the culinary industry quickly became a passion that does not seem to ever cease. Dedicated to redefining the culinary landscape of Indonesia, we eventually decided to officially run the family of restaurants under The Union Group. From our humble beginnings, we envisioned creating exceptional dining experiences that would resonate with discerning palates and celebrate the rich tapestry of global cuisines. Over the years, we've expanded our footprint across Indonesia, introducing a diverse array of restaurants that have become synonymous with innovation and excellence. From the iconic Union restaurant, where international and Indonesian flavors converge with style, to our latest award-winning bar The Cocktail Club, we've continually pushed boundaries and set new standards in gastronomy. Our commitment to quality, creativity, and creating memorable dining moments has propelled us forward, and today, we stand as a beacon of culinary excellence, cherished by patrons across Indonesia and beyond. As we continue to evolve and grow, our passion for crafting exceptional culinary experiences remains unwavering, driving us to new heights of success and innovation.</p>
         
         <h1 className="text-center font-medium mt-16 text-xl w-[99vw] py-2 border-y-2 border-black">
           CULTURE & ASPIRATIONS </h1>
         
-        <div className="flex flex-col mt-24 gap-5 w-[60vw] mx-auto">
+        <div className="flex flex-col gap-16 my-20">
+        <div className="flex flex-col gap-5 w-[60vw] mx-auto">
           <h2 className="w-full text-center font-bold tracking-wider text-3xl whitespace-pre-line">
           Beyond the palate and the plate
           </h2>
@@ -39,7 +45,7 @@ export default async function About() {
           </p>
         </div>
 
-        <div className="flex flex-col mt-24 gap-5 w-[60vw] mx-auto">
+        <div className="flex flex-col gap-5 w-[60vw] mx-auto">
           <h2 className="w-full text-center font-bold tracking-wider text-3xl whitespace-pre-line">
             {`Setting the standard for Indonesia’s
             culinary and service industry`}
@@ -49,7 +55,7 @@ export default async function About() {
           </p>
         </div>
 
-        <div className="flex flex-col mt-24 gap-5 w-[60vw] mx-auto">
+        <div className="flex flex-col gap-5 w-[60vw] mx-auto">
           <h2 className="w-full text-center font-bold tracking-wider text-3xl whitespace-pre-line">
             Every visit an experience
           </h2>
@@ -57,14 +63,19 @@ export default async function About() {
           Our mission is to be more than just a restaurant; we aim to be a destination where you can escape the hustle and bustle of everyday life and immerse yourself in a world of culinary delights and heartfelt hospitality. We are not merely in the business of food and beverages; we are in the business of creating moments, memories, and connections.  Let us serve you in the celebration of life, love, and the joy of good food shared with good company.
           </p>
         </div>
+        </div>
 
-        <h1 className="text-center font-medium mt-16 text-xl w-[99vw] py-2 border-y-2 border-black">
+        <h1 className="text-center font-medium text-xl w-[99vw] py-2 border-y-2 border-black">
           TEAM </h1>
 
-        <div className="flex flex-wrap justify-center">
+        <div className="flex flex-col gap-16 my-20 items-center">
+        <p className="text-center font-medium w-[60vw]">
+          We value each of the strengths each member of our teams bring to the table. We have some of the best leaders whose competence and ability to make the most of everybody's strength have brought our company to exceed expectations we set for ourselves.
+        </p>
+        <div className="flex flex-wrap gap-8 justify-center">
           {a.map((x,i) => {
             return(
-              <div key={i} className="m-8 border-2 justify-between border-black flex flex-col">
+              <div key={i} className="border-2 justify-between border-black flex flex-col">
                 <Image
                 src={x.picture?.large}
                 height={200}
@@ -77,6 +88,9 @@ export default async function About() {
               </div>
             )
           })}
+        </div>
+        <Link href={'/team'}>
+        <button className="bg-white border-2 border-black transition text-black hover:bg-black hover:text-white p-4 group">More about our team</button></Link>
         </div>
       </div>
     </div>

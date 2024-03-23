@@ -1,23 +1,12 @@
 import Image from "next/image";
-
+import db from '../../db/db.json'
+import Link from "next/link";
 export default async function Home() {
-  const onFetchInfo = async() => {
-    try {
-      let res = await fetch("http://localhost:5000/reviews",{
-        method: 'GET',
-        cache:'no-store'
-      })
-      res = await res.json()
-      return res
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  
-  let a = await onFetchInfo()
+  //let a = await onFetchInfo()
+  let a = db.reviews
   return (
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
-      <div className="h-[100vh] w-full relative">
+{/*       <div className="h-[100vh] w-full relative">
         <div className="absolute text-white z-40 text-center h-[90vh] drop-shadow-lg w-full mt-[49vh]">
           <div className="text-8xl">Gather at the table of UNION</div>
           <div className="text-2xl my-8">We know a thing or two about providing an unforgettable dining experience.</div>
@@ -29,11 +18,23 @@ export default async function Home() {
           className="h-[100vh] w-[100vw] object-cover object bottom"
           alt="Hero Image"
         />
+      </div> */}
+
+      <div className="h-[100vh] w-full relative">
+        <img
+          src="/homepage_hero2.jpg"
+          className="h-[65vh] w-[100vw] object-cover object bottom border-b-4 border-black"
+          alt="Hero Image"
+        />
+        <div className="absolute text-center w-full mt-20">
+          <div className="text-8xl">Gather at the table of <span className="font-bold text-8xl tracking-widest">UNION</span></div>
+          <div className="text-2xl mt-8">Time-tested excellence in dining awaits you, honed over a decade of unparalleled service and culinary craft</div>
+        </div>
       </div>
-      <div className="w-[60vw] z-40 my-32">
+      <div className="w-[60vw] z-40">
       <h2 className="w-full text-center font-bold tracking-wider text-3xl mb-16 whitespace-pre-line">{`WESTERN FOOD AS A NICHE,\nLOCAL FLAVOR AS A COMPASS`}</h2>
-        <p className="text-center font-medium">Founded in 2007, we at The Union Group have embarked on a remarkable journey dedicated to redefining the culinary landscape of Indonesia. With Western cuisine as the vessel of our dish exploration, we envisioned creating exceptional dining experiences that would resonate with discerning palates and celebrate the rich tapestry of global gastronomy. Over the years, we've expanded our footprint across Indonesia, introducing a diverse array of restaurants. From the iconic Union restaurant to the award-winning The Cocktail Club, our kitchens marry the western and local richness and continually pushed boundaries in the food & beverage industry. Our commitment to quality, creativity, and creating memorable dining moments has propelled us forward. Today, we stand as a beacon of culinary excellence, cherished by patrons across Indonesia and beyond.</p>
-        <h2 className="w-full text-center font-bold tracking-wider my-24 text-3xl whitespace-pre-line">{`10 BRANDS, 23 OUTLETS, \n17 YEARS OF EXPERIENCE`}</h2>
+        <p className="text-center font-medium">With Western cuisine as the vessel of our dish exploration, we envisioned creating exceptional dining experiences that would resonate with discerning palates and celebrate the rich tapestry of global gastronomy. Over the years, we've expanded our footprint across Indonesia, introducing a diverse array of restaurants. From the iconic Union restaurant to the award-winning The Cocktail Club, our kitchens marry the western and local richness and continually pushed boundaries in the food & beverage industry. Our commitment to quality, creativity, and creating memorable dining moments has propelled us forward. Today, we stand as a beacon of culinary excellence, cherished by patrons across Indonesia and beyond.</p>
+        <h2 className="w-full text-center font-bold tracking-wider my-32 text-3xl whitespace-pre-line">{`10 BRANDS, 23 OUTLETS, \n17 YEARS OF EXPERIENCE`}</h2>
         <div className="flex flex-wrap w-[600px] items-center justify-center gap-4 mx-auto">
           <Image
             src={"/brands-logo/BARLUCA-LOGO-FIN.png"}
@@ -103,7 +104,7 @@ export default async function Home() {
           ></Image>
         </div>
       </div>
-      <h2 className="w-full text-center font-bold tracking-wider text-3xl mb-16 whitespace-pre-line">{`VETTED BY MEDIA'S BEST FOOD CRITICS`}</h2>
+      <h2 className="w-full text-center font-bold tracking-wider text-3xl mt-32 mb-16 whitespace-pre-line">{`VETTED BY MEDIA'S BEST FOOD CRITICS`}</h2>
       <div className="grid grid-cols-5 border-y-2 border-black">
       {a.map((x,i) => {
         return(
@@ -117,7 +118,9 @@ export default async function Home() {
           </div>
         )
       })}
-      </div>
+      </div>  
+      <Link href={'/about-us'}>
+      <button className="bg-white border-2 border-black transition text-black hover:bg-black hover:text-white p-4 m-16 group">Learn more about <span className="tracking-widest font-bold group-hover:text-yellow-200">UNION</span></button></Link>
     </div>
   );
 }

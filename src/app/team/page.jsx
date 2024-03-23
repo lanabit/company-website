@@ -9,21 +9,20 @@ export default async function Team() {
   return(
     <div>
       <div className="relative h-[100vh] w-[100vw]">
-        <div className="bg-gradient-to-b h-full w-full absolute from-black/40 to-transparent">
-        </div>
-        <div className="absolute text-white ml-32 w-[80vw] mt-[50vh]">
-          <h1 className="text-8xl">
-          The union behind UNION
-          </h1>
+        <div className="bg-gradient-to-b h-[65vh] w-full absolute from-black/40 to-transparent">
         </div>
         <img
           src="/homepage_hero4.jpg"
-          className="h-[100vh] w-[100vw] object-cover object bottom"
+          className="h-[65vh] w-[100vw] object-cover object bottom"
           alt="Hero Image"
         />
+        <div className="absolute text-center w-full my-20 flex flex-col items-center">
+          <div className="text-7xl">The team behind <span className="font-bold text-7xl tracking-widest">UNION</span></div>
+          <div className="mt-8 text-lg w-[60vw]">Our company is run by dozens upon dozens of talented and hard working individuals. To make sure these people move in harmony to achive their best potentials, we need exceptional conductors. Here are our exceptional conductors.</div>
+        </div>
       </div>
 
-      <div className="flex my-8 w-[100vw] gap-6 justify-center">
+      <div className="flex mb-16 w-[100vw] gap-6 justify-center">
       {a.map((x,i) => {
       return(
           <div key={i} className="flex w-[150px] h-[700px] transition-all group hover:w-[300px] flex-col border-2 border-black">

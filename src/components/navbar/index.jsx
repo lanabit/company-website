@@ -34,7 +34,7 @@ export default function Navbar() {
   },[pathname])
 
   return(
-    <div className="flex flex-col fixed top-0 z-50 w-full">
+    <div className="flex flex-col fixed top-0 z-50 w-screen">
       { navbar ? 
       <div>
       <div className="border-b-[2px] border-black flex justify-center transition bg-white w-[100%] w-full">

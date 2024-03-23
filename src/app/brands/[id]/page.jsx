@@ -1,24 +1,11 @@
-'use client'
 import Image from "next/image"
-
-const onFetchInfo = async() => {
-  try {
-    let res = await fetch("http://localhost:5000/brands",{
-      method: 'GET',
-      cache:'no-store'
-    })
-    res = await res.json()
-    return res
-  } catch (error) {
-    console.log(error)
-  }
-}
-
+import db from '../../../../db/db.json'
 
 
 export default async function brandPage({params}) {
+  console.log("db.brands",db.brands)
 
-  const data = await onFetchInfo()
+  const data = db.brands
   const filteredData = data.filter(x => x.id === params.id)
   // brandpage for {params.id}
   // desc: {filteredData[0].desc}
