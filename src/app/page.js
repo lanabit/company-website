@@ -6,12 +6,16 @@ export default async function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full">
       <div className="h-[100vh] w-full relative">
-        <img
-          src="/homepage_hero2.jpg"
-          className="h-[65vh] w-[100vw] object-cover border-b-2 border-black"
-          alt="Hero Image"
-        />
-        <div className="absolute text-center w-full mt-24 lg:mt-20">
+      <div className="h-[65vh] w-full relative"> 
+          <Image
+            src={"/homepage_hero2.jpg"}
+            fill="true"
+            className="object-cover object-center border-b-2 border-black"
+            alt="Hero Image"
+            quality={100}
+          />
+        </div>
+        <div className="absolute text-center w-full my-16 sm:mt-24 md:mt-24 lg:mt-20">
           <div className="text-5xl lg:text-8xl">Gather at the table of <span className="font-bold tracking-widest">UNION</span></div>
           <div className="w-[80vw] mx-auto text-lg lg:w-[80vw] lg:text-2xl mt-8">Time-tested excellence in dining awaits you, honed over a decade of unparalleled service and culinary craft</div>
         </div>
@@ -109,7 +113,7 @@ export default async function Home() {
 
 
       <Link href={'/about-us'}>
-      <button className="bg-white border-2 border-black transition text-black hover:bg-black hover:text-white p-4 m-16 group">Learn more about <span className="tracking-widest font-bold group-hover:text-yellow-200">UNION</span></button></Link>
+      <button className="bg-white border-2 text-lg border-black transition text-black hover:bg-black hover:text-white p-4 m-16 group">Learn more about <span className="tracking-widest font-bold group-hover:text-yellow-200">UNION</span></button></Link>
     </div>
   );
 }

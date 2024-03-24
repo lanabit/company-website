@@ -28,16 +28,6 @@ export default async function brandPage({params}) {
   return(
     <div className="mt-[130px]">
       <Header></Header>
-      {/* <div className={`border-b-[2px] border-black h-20 items-center flex justify-center ${bgColor}`}>
-        {filteredData[0].logo ?
-        <Image
-        src={filteredData[0].logo}
-        height={180}
-        width={180}
-        alt="logo"
-        />
-        : <svg className={`${logoColor} fill-current h-8 lg:h-12`} xmlns="http://www.w3.org/2000/svg" viewBox={`${filteredData[0]?.viewbox}`}><path d={`${filteredData[0]?.path}`}/><path d={`${filteredData[0]?.path2}`}/></svg> }
-      </div> */}
       <div className="relative h-[500px] w-full border-b-2 border-black">
         <Image
           src={filteredData[0].image}
@@ -76,7 +66,7 @@ export default async function brandPage({params}) {
               <Image
                 src={x}
                 fill="true"
-                alt={filteredData[0].name}
+                alt={filteredData[0].id}
                 objectFit="cover"
               ></Image>
             </div>

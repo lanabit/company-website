@@ -11,11 +11,15 @@ export default async function Team() {
       <div className="relative h-[100vh] w-[100vw]">
         <div className="bg-gradient-to-b h-[65vh] w-full absolute from-black/40 to-transparent">
         </div>
-        <img
-          src="/homepage_hero4.jpg"
-          className="h-[65vh] w-[100vw] object-cover object bottom border-b-2 border-black"
-          alt="Hero Image"
-        />
+        <div className="h-[65vh] w-full relative"> 
+          <Image
+            src={"/homepage_hero4.jpg"}
+            fill="true"
+            className="object-cover object-center border-b-2 border-black"
+            alt="Hero Image"
+            quality={100}
+          />
+        </div>
         <div className="absolute text-center w-full mt-24 lg:mt-20">
           <div className="text-3xl lg:text-5xl">The team behind <span className="font-bold tracking-widest">UNION</span></div>
           <div className="w-[80vw] mx-auto text-base lg:w-[70vw] lg:text-xl mt-8">Our company is run by dozens upon dozens of talented and hard working individuals. To make sure these people move in harmony to achive their best potentials, we need exceptional conductors. Here are our exceptional conductors.</div>

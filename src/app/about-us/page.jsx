@@ -4,22 +4,27 @@ import { useGetTeam } from "~/api/useGetTeam"
 import db from "../../../db/db.json"
 import Timeline from "~/components/timeline"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 export default async function About() {
   const { onFetchTeam } = useGetTeam()
   let a = await onFetchTeam()
   a = await a.results
-  
+
   return(
     <div className="flex min-h-screen flex-col items-center justify-between z-0 w-full ">
       <div className="h-[100vh] w-full relative">
         <div className="h-[50vh] w-full absolute bg-black/20">
 
         </div>
-        <img
-          src="/homepage_hero5.jpg"
-          className="h-[65vh] w-full object-cover object-center border-b-2 border-black"
-          alt="Hero Image"
-        />
+        <div className="h-[65vh] w-full relative"> 
+          <Image
+            src={"/homepage_hero5.jpg"}
+            fill="true"
+            className="object-cover object-center border-b-2 border-black"
+            alt="Hero Image"
+          />
+        </div>
+        
         <div className="absolute text-center w-full mt-24 lg:mt-20">
           <div className="text-5xl lg:text-8xl">Get to know us</div>
           <div className="w-[80vw] mx-auto text-lg lg:w-[80vw] lg:text-2xl mt-8">Our history, what we are all about -- we will lay it all out here</div>

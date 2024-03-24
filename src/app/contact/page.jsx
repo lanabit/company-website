@@ -1,16 +1,20 @@
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
-
+import Image from "next/image";
 export default function Contact() {
   return(
     <div className="mb-80 md:mb-60 lg:mb-5">
       <div className="h-[100vh] w-[100vw]">
-        <img
-          src="/homepage_hero7.jpg"
-          className="h-[65vh] w-full object-cover object-center border-b-2 border-black"
-          alt="Hero Image"
-        />
+      <div className="h-[65vh] w-full relative"> 
+          <Image
+            src={"/homepage_hero7.jpg"}
+            fill="true"
+            className="object-cover object-center border-b-2 border-black"
+            alt="Hero Image"
+            quality={100}
+          />
+        </div>
         <div className="absolute flex flex-col lg:grid lg:grid-cols-3 justify-items-center mt-14 ml-32 gap-16">
           <h1 className="text-5xl lg:text-8xl">
           Let's get in touch
