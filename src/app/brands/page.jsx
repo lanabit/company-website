@@ -77,7 +77,7 @@ export default function Brands(){
       </div>
       </Link>
 
-      <Link href={'/brands/milano'}>
+      <Link href={'/brands/loewy'}>
       <div className="group border-b-[2px] border-black h-[81.7px] items-center flex justify-center hover:bg-[#a45827]">
         {/* <div className="group-hover:text-green-500 bg-red-200">
         abcdijfsji
@@ -87,7 +87,7 @@ export default function Brands(){
       </div>
       </Link>
 
-      <Link href={'/brands/milano'}>
+      <Link href={'/brands/union'}>
       <div className="group border-b-[2px] border-black h-[81.7px] items-center flex justify-center hover:bg-[#8a9366]">
         {/* <div className="group-hover:text-green-500 bg-red-200">
         abcdijfsji

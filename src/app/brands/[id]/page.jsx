@@ -3,18 +3,42 @@ import db from '../../../../db/db.json'
 
 
 export default async function brandPage({params}) {
-  console.log("db.brands",db.brands)
-
   const data = db.brands
   const filteredData = data.filter(x => x.id === params.id)
-  // brandpage for {params.id}
-  // desc: {filteredData[0].desc}
+
+
+  const Header = () => {
+    const bgColor = filteredData[0].color[0].bg;
+    const logoColor = filteredData[0].color[0].logo;
+
+    return(
+      <div className={`border-b-[2px] border-black h-20 items-center flex justify-center`} style={{backgroundColor: bgColor}}>
+        {filteredData[0].logo ?
+        <Image
+        src={filteredData[0].logo}
+        height={180}
+        width={180}
+        alt="logo"
+        />
+        : <svg className={`fill-current ${params.id === "bouchon" ? "h-8 lg:h-12" : "h-12"}`} style={{color: logoColor}} xmlns="http://www.w3.org/2000/svg" viewBox={`${filteredData[0]?.viewbox}`}><path d={`${filteredData[0]?.path}`}/><path d={`${filteredData[0]?.path2}`}/></svg> }
+      </div>
+    )
+  }
+
   return(
     <div className="mt-[130px]">
-      <div className="group border-b-[2px] border-black h-20 items-center flex justify-center bg-[#f5ecd0]">
-        <svg className="text-[#292559] fill-current h-12" xmlns="http://www.w3.org/2000/svg" viewBox={`${filteredData[0].viewbox}`}><path d={`${filteredData[0].path}`}/><path d={`${filteredData[0]?.path2}`}/></svg>
-      </div>
-      <div className="relative h-[500px] w-full">
+      <Header></Header>
+      {/* <div className={`border-b-[2px] border-black h-20 items-center flex justify-center ${bgColor}`}>
+        {filteredData[0].logo ?
+        <Image
+        src={filteredData[0].logo}
+        height={180}
+        width={180}
+        alt="logo"
+        />
+        : <svg className={`${logoColor} fill-current h-8 lg:h-12`} xmlns="http://www.w3.org/2000/svg" viewBox={`${filteredData[0]?.viewbox}`}><path d={`${filteredData[0]?.path}`}/><path d={`${filteredData[0]?.path2}`}/></svg> }
+      </div> */}
+      <div className="relative h-[500px] w-full border-b-2 border-black">
         <Image
           src={filteredData[0].image}
           alt="Picture of the author"
@@ -23,14 +47,8 @@ export default async function brandPage({params}) {
           quality="100"
         ></Image>
       </div>
-      {/* <div className="flex overflow-hidden border-b-2 border-black">
-        <img className="border-r-2 border-black h-[40vh] w-[800px] object-cover" src="/pierre-wide.jpeg"/>
-        <img className="border-r-2 border-black h-[40vh] w-[800px] object-cover" src="/pierre/2.jpg" />
-        <img className="border-r-2 border-black h-[40vh] w-[400px] object-cover" src="/pierre/1.jpg" />
-        <img className="border-r-2 border-black h-[40vh] w-[400px] object-cover" src="/pierre/3.jpg" />
-      </div> */}
       <div className="mt-16">
-      <div className="text-center w-[30vw] mx-auto my-8 text-lg font-bold">
+      <div className="text-center w-[70vw] lg:w-[50vw] mx-auto my-8 lg:text-lg font-bold">
         {filteredData[0].tagline}
       </div>
       <div className="text-center w-[60vw] mx-auto my-8 mb-16">
@@ -43,7 +61,7 @@ export default async function brandPage({params}) {
         return(
           <div key={i} className="whitespace-pre flex flex-col gap-4">
             <div className="uppercase text-lg font-bold">{x.name}</div>
-            <div>{x.details}</div>
+            <div className="uppercase">{x.details}</div>
             <div className="flex flex-col"><span className="text-neutral-500 text-sm font-bold">Opening Hours</span>{x.openinghours}</div>
             <div className="flex flex-col"><span className="text-neutral-500 text-sm font-bold">Phone</span> {x.phone}</div>
             <div className="flex flex-col"><span className="text-neutral-500 text-sm font-bold">Whatsapp</span> {x.wa}</div>
@@ -51,10 +69,10 @@ export default async function brandPage({params}) {
         )
       })}
       </div>
-      <div className="grid grid-cols-3 w-full border-2 border-black">
+      <div className="grid lg:grid-cols-3 w-full border-y-2 border-black">
         {filteredData[0].gallery.map((x,i) => {
           return(
-            <div key={i} className="relative h-[500px]">
+            <div key={i} className="relative border-b-2 lg:border-r-2 last:border-bone border-black h-[500px]">
               <Image
                 src={x}
                 fill="true"

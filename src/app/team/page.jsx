@@ -13,16 +13,16 @@ export default async function Team() {
         </div>
         <img
           src="/homepage_hero4.jpg"
-          className="h-[65vh] w-[100vw] object-cover object bottom"
+          className="h-[65vh] w-[100vw] object-cover object bottom border-b-2 border-black"
           alt="Hero Image"
         />
-        <div className="absolute text-center w-full my-20 flex flex-col items-center">
-          <div className="text-7xl">The team behind <span className="font-bold text-7xl tracking-widest">UNION</span></div>
-          <div className="mt-8 text-lg w-[60vw]">Our company is run by dozens upon dozens of talented and hard working individuals. To make sure these people move in harmony to achive their best potentials, we need exceptional conductors. Here are our exceptional conductors.</div>
+        <div className="absolute text-center w-full mt-24 lg:mt-20">
+          <div className="text-3xl lg:text-5xl">The team behind <span className="font-bold tracking-widest">UNION</span></div>
+          <div className="w-[80vw] mx-auto text-base lg:w-[70vw] lg:text-xl mt-8">Our company is run by dozens upon dozens of talented and hard working individuals. To make sure these people move in harmony to achive their best potentials, we need exceptional conductors. Here are our exceptional conductors.</div>
         </div>
       </div>
 
-      <div className="flex mb-16 w-[100vw] gap-6 justify-center">
+      <div className="hidden lg:flex mb-16 w-[100vw] gap-6 justify-center">
       {a.map((x,i) => {
       return(
           <div key={i} className="flex w-[150px] h-[700px] transition-all group hover:w-[300px] flex-col border-2 border-black">
@@ -48,7 +48,36 @@ export default async function Team() {
           </div>
         )
       })}
-    </div>
+      </div>
+
+      <div className="lg:hidden flex flex-col mb-16 w-[100vw] gap-6 justify-center items-center">
+      {a.map((x,i) => {
+      return(
+          <div key={i} className="flex w-[90vw] md:w-[60vw] h-[200px] hover:h-[400px] transition-all group border-2 border-black ">
+           
+            <Image
+            src={x.picture?.large}
+            height={300}
+            width={300}
+            alt="user"
+            quality={100}
+            className="object-cover"/>
+           
+            <div className="my-8 mx-8 w-[60%] flex flex-col justify-between">  
+              <div className="flex flex-col w-[100%]">
+              <div className="font-bold text-lg">{x.name.first} {x.name.last} - {x.role.title}</div>
+              <div className="text-xs tracking-wider">{x.role.expertise}</div>
+              </div>
+              <div className="hidden transition-all group-hover:block text-sm">{x.role.description}</div>
+              <div>
+              <div className="hidden group-hover:block text-xs tracking-wider">contact</div>
+              <div className="hidden transition-all group-hover:block hover:cursor-pointer hover:bg-yellow-200">{x.email}</div>
+              </div>
+            </div>
+          </div>
+        )
+      })}
+      </div>
     </div>
   )
 }
